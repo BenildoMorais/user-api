@@ -1,7 +1,9 @@
 package com.ict4dev.benildo.userapi.controller;
 
 import com.ict4dev.benildo.userapi.dto.UserDTO;
+import com.ict4dev.benildo.userapi.service.UserService;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -11,9 +13,11 @@ import java.util.List;
 @RestController
 public class UserController {
 
+    @Autowired
+    private UserService userService;
     private static List<UserDTO> usuarios = new ArrayList<UserDTO>();
 
-    @PostConstruct
+ /*   @PostConstruct
     public void initiateList() {
 
         UserDTO userDTO = new UserDTO();
@@ -49,7 +53,7 @@ public class UserController {
     @GetMapping("/users")
     public List<UserDTO> getUsers() {
         return usuarios;
-    }
+    }*/
 
     @GetMapping("/users/{nuit}")
     public UserDTO getUsersFiltro(@PathVariable String nuit) {
