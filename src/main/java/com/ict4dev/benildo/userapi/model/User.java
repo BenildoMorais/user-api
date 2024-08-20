@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 
+import java.util.Date;
+
 @Entity
 public class User {
 
@@ -18,7 +20,7 @@ public class User {
     private String endereco;
     private String email;
     private String telefone;
-    private String dataCadastro;
+    private Date dataCadastro;
 
     public long getId() {
         return id;
@@ -68,16 +70,17 @@ public class User {
         this.telefone = telefone;
     }
 
-    public String getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(String dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
     public static User convert(UserDTO userDTO) {
         User user = new User();
+        user.setId(userDTO.getId());
         user.setNome(userDTO.getNome());
         user.setEndereco(userDTO.getEndereco());
         user.setNuit(userDTO.getNuit());

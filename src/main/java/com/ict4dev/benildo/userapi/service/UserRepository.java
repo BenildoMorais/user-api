@@ -8,7 +8,7 @@ import java.util.List;
 
     @Repository
     public interface UserRepository extends JpaRepository<User, Long> {
-        User findByNuit(String nuit);
+       // User findById(String id);
         List<User> queryByNomeLike(String name);
-
-}
+        User findByNuit(String nuit);
+    }

@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user/")
+    @GetMapping("/users/")
     public List<UserDTO> getUsers() {
         List<UserDTO> usuarios = userService.getAll();
         return usuarios;
@@ -28,7 +28,7 @@ public class UserController {
         return userService.save(userDTO);
     }
 
-    @GetMapping("/user/cpf/{nuit}")
+    @GetMapping("/user/nuit/{nuit}")
     UserDTO findByCpf(@PathVariable String nuit) {
         return userService.findByNuit(nuit);
     }
